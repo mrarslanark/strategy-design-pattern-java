@@ -33,10 +33,10 @@ public abstract class Person {
     // Returns full name
     @NotNull
     private String fullName() {
-        if (this.middleName.isBlank() || this.middleName.isEmpty()) {
-            return this.firstName + " " + this.lastName;
+        if (this.getMiddleName().isBlank() || this.getMiddleName().isEmpty()) {
+            return this.getFirstName() + " " + this.getLastName();
         } else {
-            return this.firstName + " "  + this.middleName + " " + this.lastName;
+            return this.getFirstName() + " "  + this.getMiddleName() + " " + this.getLastName();
         }
     }
 
@@ -56,40 +56,28 @@ public abstract class Person {
     // endregion
 
     // region Getters and Setters
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
 
-    public String getFirstName() {
+    @Contract(pure = true)
+    private String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
 
-    public String getMiddleName() {
+    @Contract(pure = true)
+    private String getMiddleName() {
         return middleName;
     }
 
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
-    }
-
-    public String getLastName() {
+    @Contract(pure = true)
+    private String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
-    public String getNationality() {
+    @Contract(pure = true)
+    private String getNationality() {
         return nationality;
     }
 
-    public void setNationality(String nationality) {
-        this.nationality = nationality;
-    }
     // endregion
 }
