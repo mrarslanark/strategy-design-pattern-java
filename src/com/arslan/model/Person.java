@@ -18,13 +18,17 @@ public abstract class Person {
     // Abstract Methods
     public abstract int age();
 
-    // No Argument Constructor
+    // Parameterized Constructor
     @Contract(pure = true)
-    public Person() {
-
+    public Person(String firstName, String middleName, String lastName, String nationality, Gender gender) {
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.nationality = nationality;
+        this.gender = gender;
     }
 
-    // region Methods
+    // region Class Methods
 
     // Returns full name
     @NotNull
@@ -37,8 +41,16 @@ public abstract class Person {
     }
 
     // Show gender
-    private void showGender() {
-        gender.gender();
+    private String showGender() {
+        return gender.gender();
+    }
+
+    // Display Details
+    public String display() {
+        return "Full Name: " + this.fullName() + "\n" +
+                "Nationality(ies): " + this.getNationality() + "\n" +
+                "Gender: " + this.showGender() + "\n" +
+                "Age: " + this.age();
     }
 
     // endregion
@@ -46,10 +58,6 @@ public abstract class Person {
     // region Getters and Setters
     public void setGender(Gender gender) {
         this.gender = gender;
-    }
-
-    public Gender getGender() {
-        return gender;
     }
 
     public String getFirstName() {
