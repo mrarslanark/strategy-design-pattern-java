@@ -1,5 +1,6 @@
 package com.arslan.model;
 
+import com.arslan.interfaces.Gender;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -12,7 +13,7 @@ public abstract class Person {
     private String nationality;
 
     // Interface
-    // TODO: Add gender interface
+    private Gender gender;
 
     // Abstract Methods
     abstract int age();
@@ -35,9 +36,18 @@ public abstract class Person {
         }
     }
 
+    // Show gender
+    private void showGender() {
+        gender.gender();
+    }
+
     // endregion
 
     // region Getters and Setters
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
     public String getFirstName() {
         return firstName;
     }
