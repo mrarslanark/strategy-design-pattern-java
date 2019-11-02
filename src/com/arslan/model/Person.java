@@ -16,7 +16,7 @@ public abstract class Person {
     private Gender gender;
 
     // Abstract Methods
-    abstract int age();
+    public abstract int age();
 
     // No Argument Constructor
     @Contract(pure = true)
@@ -46,6 +46,10 @@ public abstract class Person {
     // region Getters and Setters
     public void setGender(Gender gender) {
         this.gender = gender;
+    }
+
+    public Gender getGender() {
+        return gender;
     }
 
     public String getFirstName() {
